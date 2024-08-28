@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container my-5">
+    <h2 class="mb-4">Add New Product</h2>
+    <form th:action="@{/add-product}" th:object="${product}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter product name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="Enter description" required>
+        </div>
+        <div class="form-group">
+            <label for="unitprice">Unit Price:</label>
+            <input type="number" class="form-control" id="unitprice" th:field="*{unitprice}" placeholder="Enter unit price" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+        <a th:href="@{/}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
